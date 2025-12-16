@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Banking Simulator - ATM Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .atm-container {
+            background: #1a1a2e;
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .screen {
+            background: #0f3460;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .screen h1 {
+            color: #ffd700;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .screen p {
+            color: #00d4ff;
+            font-size: 14px;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .module-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 2px solid #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-family: 'Courier New', monospace;
+        }
+
+        .module-btn:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+            border-color: #00d4ff;
+        }
+
+        .module-btn:active {
+            transform: translateY(-1px);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .reset-btn {
+            background: #d32f2f;
+            color: white;
+            border: 2px solid #ffd700;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .reset-btn:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            color: #ffd700;
+            font-size: 12px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="atm-container">
+        <div class="screen">
+            <h1>🏦 SMART BANKING</h1>
+            <p>Module Browser Interface</p>
+        </div>
+
+        <div class="modules-grid">
+            <button class="module-btn" onclick="showCode('BankingSimulator')">📊 Banking Simulator</button>
+            <button class="module-btn" onclick="showCode('BankService')">⚙️ Bank Service</button>
+            <button class="module-btn" onclick="showCode('Account')">💳 Account</button>
+            <button class="module-btn" onclick="showCode('SavingsAccount')">🏦 Savings Acct</button>
+            <button class="module-btn" onclick="showCode('CurrentAccount')">💼 Current Acct</button>
+            <button class="module-btn" onclick="showCode('LoanAccount')">📈 Loan Account</button>
+            <button class="module-btn full-width" onclick="showCode('FileHandler')">📁 File Handler</button>
+            <button class="module-btn" onclick="showCode('InsufficientFundsException')">⚠️ Insufficient Funds</button>
+            <button class="module-btn" onclick="showCode('NegativeAmountException')">⚠️ Negative Amount</button>
+        </div>
+
+        <button class="reset-btn" onclick="viewRepo()">📂 View All Repo</button>
+        <div class="footer">► Smart Banking Simulator ◄</div>
+    </div>
+
+    <script>
+        function showCode(fileName) {
+            const baseUrl = 'https://github.com/mdrahimadnan/java-project/blob/main/';
+            const fileUrl = baseUrl + fileName + '.java';
+            window.open(fileUrl, '_blank');
+        }
+
+        function viewRepo() {
+            window.open('https://github.com/mdrahimadnan/java-project', '_blank');
+        }
+    </script>
+</body>
+</html>
